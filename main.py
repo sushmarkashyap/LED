@@ -14,7 +14,8 @@ def index():
 @app.route('/onpin', methods=['POST'])
 def onpin():
     if request.method == 'POST':
-        on = LED_ON( request.form['pin'])
+        body=request.get_json()
+        on = LED_ON(body['pin'])
         return jsonify({"status" : on.show_ledON() })
     else:
          return jsonify({'status:cant find status'})
@@ -22,7 +23,8 @@ def onpin():
 @app.route('/offpin', methods=['POST'])
 def offpin():
     if request.method == 'POST':
-        off = LED_OFF( request.form['pin'])
+        body=request.get_json()
+        off = LED_OFF(body['pin'])
         return jsonify({"status" : off.show_ledOFF() })
     else:
         return jsonify({'status:cant find status'})          
