@@ -1,5 +1,5 @@
 from gpiozero import LED
-led=LED(18)
+
 class LED_ON:
     def __init__(self,pin):
         self._pin=pin
@@ -8,5 +8,6 @@ class LED_ON:
         return self._get_ledON()
     
     def _get_ledON(self):
+        led=LED(18)
         led.on()
         return True
