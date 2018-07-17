@@ -1,4 +1,4 @@
- from gpiozero import LED
+from gpiozero import LED
 
 class LED_ON:
     def __init__(self,pin):
