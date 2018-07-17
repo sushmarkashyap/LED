@@ -1,5 +1,5 @@
 
-#import gpiozero from LED 
+import gpiozero from LED 
 
 class LED_OFF:
     def __init__(self,pin):
@@ -9,8 +9,8 @@ class LED_OFF:
         return self._get_ledOFF()
         
     def _get_ledOFF(self):
-         #led=LED(17)
-        #led.off()
+         led=LED(17)
+        led.off()
         return True
 
     
