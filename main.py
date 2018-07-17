@@ -18,7 +18,7 @@ def onpin():
         body=request.get_json()
         # on = LED_ON(body['pin'])
         led.on()
-        return jsonify({"status" : on.show_ledON() })
+        return jsonify({"status" : 'on.show_ledON()' })
     else:
          return jsonify({'status:cant find status'})
     
@@ -28,7 +28,7 @@ def offpin():
         body=request.get_json()
         # off = LED_OFF(body['pin'])
         led.off()
-        return jsonify({"status" : off.show_ledOFF() })
+        return jsonify({"status" :' off.show_ledOFF()' })
     else:
         return jsonify({'status:cant find status'})          
     
