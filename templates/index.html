@@ -16,7 +16,6 @@
       <h1>LED</h1>
       <section id="controlLED">
          <button class="btn btn-success" v-on:click="onLED">ON</button>
-          <button class="btn btn-danger" v-on:click="offLED">OFF</button>
       </section>
     </div>  
     <!-- Optional JavaScript -->
@@ -36,18 +35,7 @@
         onLED: function(){
           console.log("on was called!");
           axios.post('/onpin',{
-            pin:17
-          })
-          .then(function(response){
-            console.log(response.data);})
-          .catch(function(error){
-            console.log(error);
-          });  
-        },
-        offLED: function(){
-          console.log("off was called!");
-          axios.post('/offpin',{
-            pin:17
+           led_1:14, led_2=15, led_3=18, led_4=2, led_5=3, led_6=4 
           })
           .then(function(response){
             console.log(response.data);})
@@ -55,8 +43,9 @@
             console.log(error);
           });  
         }
-      }
-    })
+          
+        }
+      })
 
       </script>
   </body>

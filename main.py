@@ -1,12 +1,15 @@
 from flask import Flask, jsonify, url_for, request, render_template
 from gpiozero import LED
-#from on import LED_ON
-#from off import LED_OFF
+import time
 
 
 app = Flask(__name__)
-led=LED(18)
-
+led1=LED(14)
+led2=LED(15)
+led3=LED(18)
+led4=LED(2)
+led5=LED(3)
+led6=LED(4)
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
@@ -16,21 +19,47 @@ def index():
 def onpin():
     if request.method == 'POST':
         body=request.get_json()
-        # on = LED_ON(body['pin'])
-        led.on()
+        for i in range(0, 5):
+            led1.on()
+            time.sleep(0.25)
+            led2.0n()
+            time.sleep(0.5)
+            led1.off()
+            led2.off()
+            time.sleep(0.25)
+             led3.on()
+            time.sleep(0.25)
+            led4.0n()
+            time.sleep(0.5)
+            led3.off()
+            led4.off()
+            time.sleep(0.25)
+             led5.on()
+            time.sleep(0.25)
+            led6.0n()
+            time.sleep(0.5)
+            led5.off()
+            led6.off()
+            time.sleep(0.25)
+            led1.on()
+            led3.on()
+            led5.on()
+            time.sleep(0.5)
+            led1.off()
+            led3.off()
+            led5.off()
+            time.sleep(0.25)
+            led2.on()
+            led4.on()
+            led6.on()
+            time.sleep(0.5)
+            led2.off()
+            led4.off()
+            led6.off()
+            time.sleep(0.25)
         return jsonify({"status" : 'on.show_ledON()' })
     else:
          return jsonify({'status:cant find status'})
-    
-@app.route('/offpin', methods=['POST'])
-def offpin():
-    if request.method == 'POST':
-        body=request.get_json()
-        # off = LED_OFF(body['pin'])
-        led.off()
-        return jsonify({"status" :' off.show_ledOFF()' })
-    else:
-        return jsonify({'status:cant find status'})          
     
 if __name__=='__main__':
     app.debug=True
