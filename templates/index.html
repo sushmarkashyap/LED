@@ -35,7 +35,7 @@
         onLED: function(){
           console.log("on was called!");
           axios.post('/onpin',{
-           led_1:14, led_2=15, led_3=18, led_4=2, led_5=3, led_6=4 
+           l1:14, l2=15, l3=18, l4=2, l5=3, l6=4 
           })
           .then(function(response){
             console.log(response.data);})

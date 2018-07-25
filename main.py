@@ -19,7 +19,7 @@ def index():
 def onpin():
     if request.method == 'POST':
         body=request.get_json()
-        for i in range(0, 5):
+        for i in range(0,5):
             led1.on()
             time.sleep(0.25)
             led2.on()
@@ -59,7 +59,7 @@ def onpin():
             time.sleep(0.25)
         return jsonify({"status" : 'on.show_ledON()' })
     else:
-         return jsonify({'status:cant find status'})
+        return jsonify({'status:cant find status'})
     
 if __name__=='__main__':
     app.debug=True
