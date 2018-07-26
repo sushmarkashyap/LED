@@ -28,7 +28,7 @@ def pin1():
    
 @app.route('/pin2', methods=['POST'])
 def pin2():
-     if request.method == 'POST':
+    if request.method == 'POST':
         body=request.get_json()
         yellow1=GPIO.setup(body['led2'],IO.OUT)
         return jsonify({"status" :' pin2 entered' })
@@ -37,7 +37,7 @@ def pin2():
        
 @app.route('/pin3', methods=['POST'])
 def pin3():
-     if request.method == 'POST':
+    if request.method == 'POST':
         body=request.get_json()
         green1=GPIO.setup(body['led3'],IO.OUT)
         return jsonify({"status" :' pin3 entered' })
@@ -57,7 +57,7 @@ def pin4():
     
 @app.route('/pin5', methods=['POST'])
 def pin5():
-     if request.method == 'POST':
+    if request.method == 'POST':
         body=request.get_json()
        yellow2=GPIO.setup(body['led5'],IO.OUT)
         return jsonify({"status" :' pin5 entered' })
@@ -67,7 +67,7 @@ def pin5():
    
 @app.route('/pin6', methods=['POST'])
 def pin6():
-     if request.method == 'POST':
+    if request.method == 'POST':
         body=request.get_json()
         green2=GPIO.setup(body['led6'],IO.OUT)
         return jsonify({"status" :' pin6 entered' })
