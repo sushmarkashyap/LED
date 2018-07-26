@@ -14,7 +14,7 @@ def ledOff(pin,tiim):
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('pattern.html', mode=GPIO.getmode())
+    return render_template('index.html', mode=GPIO.getmode())
 
 @app.route('/pin1', methods=['POST'])
 def pin1():
