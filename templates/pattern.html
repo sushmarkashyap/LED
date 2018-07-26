@@ -61,26 +61,31 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script>
-      var ledApp = new Vue({
-      el: '#patternLED',
-      data: {
-       current: {}
-      },
-      methods: {
-        onLED: function(obj){
-          console.log("on was called!");
-          axios.post('/onpin',{
-           l1:obj.r1, l2:obj.y1, l3:obj.g1, l4:obj.r2, l5:obj.y2, l6:obj.g2 
-          })
-          .then(function(response){
-            console.log(response.data);})
-          .catch(function(error){
-            console.log(error);
-          });  
-        }
+       (function() {
+           'use strict';
+           var ledApp = new Vue({
+                el: '#patternLED',
+                data: {
+                current: {}
+                    },
+                methods: {
+                 onLED: function(obj){
+                console.log("on was called!");
+                axios.post('/onpin',{
+                l1:obj.r1, l2:obj.y1, l3:obj.g1, l4:obj.r2, l5:obj.y2, l6:obj.g2 
+                 })
+                .then(function(response){
+                    console.log(response.data);})
+                .catch(function(error){
+                    console.log(error);
+                 });  
+                    }
           
-        }
-      })
+                    }
+                 })
+       })
+
+      
 
       </script>
   </body>
