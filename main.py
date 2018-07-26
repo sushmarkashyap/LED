@@ -59,7 +59,7 @@ def pin4():
 def pin5():
     if request.method == 'POST':
         body=request.get_json()
-       yellow2=GPIO.setup(body['led5'],IO.OUT)
+        yellow2=GPIO.setup(body['led5'],IO.OUT)
         return jsonify({"status" :' pin5 entered' })
     else:
         return jsonify({'status:cant find status'})
