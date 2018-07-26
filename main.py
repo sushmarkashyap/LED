@@ -25,7 +25,7 @@ def pin1():
     else:
         return jsonify({'status:cant find status'})
         
-    })
+   
 @app.route('/pin2', methods=['POST'])
 def pin2():
      if request.method == 'POST':
@@ -34,8 +34,7 @@ def pin2():
         return jsonify({"status" :' pin2 entered' })
     else:
         return jsonify({'status:cant find status'})
-        
-    })
+       
 @app.route('/pin3', methods=['POST'])
 def pin3():
      if request.method == 'POST':
@@ -45,7 +44,7 @@ def pin3():
     else:
         return jsonify({'status:cant find status'})
         
-    })
+  
 @app.route('/pin4', methods=['POST'])
 def pin4():
     if request.method == 'POST':
@@ -55,7 +54,7 @@ def pin4():
     else:
         return jsonify({'status:cant find status'})
         
-    })
+    
 @app.route('/pin5', methods=['POST'])
 def pin5():
      if request.method == 'POST':
@@ -65,7 +64,7 @@ def pin5():
     else:
         return jsonify({'status:cant find status'})
         
-    })
+   
 @app.route('/pin6', methods=['POST'])
 def pin6():
      if request.method == 'POST':
@@ -75,7 +74,7 @@ def pin6():
     else:
         return jsonify({'status:cant find status'})
         
-    })
+
 
 @app.route('/onpin', methods=['POST'])
 def onpin():
