@@ -5,7 +5,7 @@ import time
 app = Flask(__name__)
 
 def ledOn(pin,tiim):
-    GPIO.setup(pin,IO.OUT)
+    GPIO.setup(pin,GPIO.OUT)
     GPIO.output(pin,GPIO.HIGH)
     time.sleep(tiim)
 def ledOff(pin,tiim):
