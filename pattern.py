@@ -81,7 +81,7 @@ def index():
 def onpin():
     if request.method == 'POST':
         body=request.get_json()
-
+        print(type(body.get('l1')))
         for i in range(0,5):
             print('entering loop')
             ledOn(body.get('l1'),2)
