@@ -1,63 +1,113 @@
 from flask import Flask, jsonify, url_for, request, render_template
-from gpiozero import LED
-import time
-
+import RPi.GPIO as GPIO          
+import time    
 
 app = Flask(__name__)
-led1=LED(14)
-led2=LED(15)
-led3=LED(18)
-led4=LED(2)
-led5=LED(3)
-led6=LED(4)
+
+def ledOn(pin,tiim):
+    GPIO.output(pin,GPIO.HIGH)
+    time.sleep(tiim)
+def ledOff(pin,tiim):
+    GPIO.output(pin,GPIO.LOW)
+    time.sleep(tiim) 
+    return   
+
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('pattern.html', mode=GPIO.getmode())
 
+@app.route('/pin1', methods=['POST'])
+def pin1():
+    if request.method == 'POST':
+        body=request.get_json()
+        red1=GPIO.setup(body['led1'],IO.OUT)
+        return jsonify({"status" :' pin1 entered' })
+    else:
+        return jsonify({'status:cant find status'})
+        
+    })
+@app.route('/pin2', methods=['POST'])
+def pin2():
+     if request.method == 'POST':
+        body=request.get_json()
+        yellow1=GPIO.setup(body['led2'],IO.OUT)
+        return jsonify({"status" :' pin2 entered' })
+    else:
+        return jsonify({'status:cant find status'})
+        
+    })
+@app.route('/pin3', methods=['POST'])
+def pin3():
+     if request.method == 'POST':
+        body=request.get_json()
+        green1=GPIO.setup(body['led3'],IO.OUT)
+        return jsonify({"status" :' pin3 entered' })
+    else:
+        return jsonify({'status:cant find status'})
+        
+    })
+@app.route('/pin4', methods=['POST'])
+def pin4():
+    if request.method == 'POST':
+        body=request.get_json()
+        red2=GPIO.setup(body['led4'],IO.OUT)
+        return jsonify({"status" :' pin4 entered' })
+    else:
+        return jsonify({'status:cant find status'})
+        
+    })
+@app.route('/pin5', methods=['POST'])
+def pin5():
+     if request.method == 'POST':
+        body=request.get_json()
+       yellow2=GPIO.setup(body['led5'],IO.OUT)
+        return jsonify({"status" :' pin5 entered' })
+    else:
+        return jsonify({'status:cant find status'})
+        
+    })
+@app.route('/pin6', methods=['POST'])
+def pin6():
+     if request.method == 'POST':
+        body=request.get_json()
+        green2=GPIO.setup(body['led6'],IO.OUT)
+        return jsonify({"status" :' pin6 entered' })
+    else:
+        return jsonify({'status:cant find status'})
+        
+    })
 
 @app.route('/onpin', methods=['POST'])
 def onpin():
     if request.method == 'POST':
         body=request.get_json()
         for i in range(0,5):
-            led1.on()
-            led2.on()
-            time.sleep(0.5)
-            led1.off()
-            led2.off()
-            time.sleep(0.25)
-            led3.on()
-            led4.on()
-            time.sleep(0.5)
-            led3.off()
-            led4.off()
-            time.sleep(0.25)
-            led5.on()
-            led6.on()
-            time.sleep(0.5)
-            led5.off()
-            led6.off()
-            time.sleep(0.25)
-            led1.on()
-            led3.on()
-            led5.on()
-            time.sleep(0.5)
-            led1.off()
-            led3.off()
-            led5.off()
-            time.sleep(0.25)
-            led2.on()
-            led4.on()
-            led6.on()
-            time.sleep(0.5)
-            led2.off()
-            led4.off()
-            led6.off()
-            time.sleep(0.25)
+            ledOn(red1,2)
+            ledOn(green2,2)
+            ledOff(red1,0.5)
+            ledOff(green2,0.5)
+            ledOn(yellow1,1)
+            ledOn(yellow2,1)
+            ledOff(yellow1,0.5)
+            ledOff(yellow2,0.5)
+            ledOn(red2,2)
+            ledOn(green1,2)
+            ledOff(red2,0.5)
+            ledOff(green1,0.5)
+            ledOn(yellow1,1)
+            ledOn(yellow2,1)
+            ledOff(yellow1,0.5)
+            ledOff(yellow2,0.5)
         return jsonify({"status" : 'on.show_ledON()' })
     else:
         return jsonify({'status:cant find status'})
-    
+
+@app.route("/cleanup", methods=["POST"])
+def cleanup():
+	if request.method == 'POST':
+		GPIO.cleanup()
+		return jsonify({"status": "Done cleaning the house!"})    
+
 if __name__=='__main__':
     app.debug=True
     app.run(host='0.0.0.0')
