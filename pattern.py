@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time    
 
 app = Flask(__name__)
-
+GPIO.setmode(GPIO.BCM)
 def ledOn(pin,tiim):
     GPIO.setup(pin,GPIO.OUT)
     GPIO.output(pin,GPIO.HIGH)
