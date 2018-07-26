@@ -4,13 +4,12 @@ import time
 
 app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
-def ledOn(pin,tiim):
+def ledOn(pin):
     GPIO.setup(pin,GPIO.OUT)
     GPIO.output(pin,GPIO.HIGH)
-    time.sleep(tiim)
-def ledOff(pin,tiim):
+    
+def ledOff(pin):
     GPIO.output(pin,GPIO.LOW)
-    time.sleep(tiim) 
     return   
 
 @app.route('/', methods=['GET'])
@@ -83,22 +82,30 @@ def onpin():
         body=request.get_json()
         for i in range(0,5):
             print('entering loop')
-            ledOn(int(body.get('l1')),0)
-            ledOn(int(body.get('l6')),0)
-            ledOff(int(body.get('l1')),0.5)
-            ledOff(int(body.get('l6')),0.5)
-            ledOn(int(body.get('l2')),1)
-            ledOn(int(body.get('l5')),1)
-            ledOff(int(body.get('l2')),0.5)
-            ledOff(int(body.get('l5')),0.5)
-            ledOn(int(body.get('l3')),2)
-            ledOn(int(body.get('l4')),2)
-            ledOff(int(body.get('l3')),0.5)
-            ledOff(int(body.get('l4')),0.5)
-            ledOn(int(body.get('l2')),1)
-            ledOn(int(body.get('l5')),1)
-            ledOff(int(body.get('l2')),0.5)
-            ledOff(int(body.get('l5')),0.5)
+            ledOn(int(body.get('l1')))
+            ledOn(int(body.get('l6')))
+            time.sleep(2)
+            ledOff(int(body.get('l1')))
+            ledOff(int(body.get('l6')))
+            time.sleep(0.5)
+            ledOn(int(body.get('l2')))
+            ledOn(int(body.get('l5')))
+            time.sleep(1)
+            ledOff(int(body.get('l2')))
+            ledOff(int(body.get('l5')))
+            time.sleep(0.5)
+            ledOn(int(body.get('l3')))
+            ledOn(int(body.get('l4')))
+            time.sleep(2)
+            ledOff(int(body.get('l3')))
+            ledOff(int(body.get('l4')))
+            time.sleep(0.5)
+            ledOn(int(body.get('l2')))
+            ledOn(int(body.get('l5')))
+            time.sleep(1)
+            ledOff(int(body.get('l2')))
+            ledOff(int(body.get('l5')))
+            time.sleep(0.5)
         return jsonify({"status" : body })
     else:
         return jsonify({'status:cant find status'})
