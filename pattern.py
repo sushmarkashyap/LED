@@ -89,7 +89,7 @@ def onpin():
             ledOff(body.get('l6'),0.5)
             ledOn(body.get('l2'),1)
             ledOn(body.get('l5'),1)
-            ledOffbody.get('l2'),0.5)
+            ledOff(body.get('l2'),0.5)
             ledOff(body.get('l5'),0.5)
             ledOn(body.get('l3'),2)
             ledOn(body.get('l4'),2)
@@ -97,7 +97,7 @@ def onpin():
             ledOff(body.get('l4'),0.5)
             ledOn(body.get('l2'),1)
             ledOn(body.get('l5'),1)
-            ledOffbody.get('l2'),0.5)
+            ledOff(body.get('l2'),0.5)
             ledOff(body.get('l5'),0.5)
         return jsonify({"status" : body })
     else:
