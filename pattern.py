@@ -83,6 +83,7 @@ def onpin():
         body=request.get_json()
 
         for i in range(0,5):
+            print('entering loop')
             ledOn(body.get('l1'),2)
             ledOn(body.get('l6'),2)
             ledOff(body.get('l1'),0.5)
