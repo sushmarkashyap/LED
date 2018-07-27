@@ -7,7 +7,7 @@ IO.setmode (IO.BCM)
 app = Flask(__name__)       
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('pwm.html', mode=IO.getmode())
+    return render_template('PWM.html', mode=IO.getmode())
 
 @app.route('/onpin', methods=['POST'])
 def onpin():
