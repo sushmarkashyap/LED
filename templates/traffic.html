@@ -59,7 +59,7 @@
         ronLED: function(obj){
             console.log("on was called!");
             axios.post('/redonpin',{
-                red:obj.pin 
+                red:obj.r
                  })
                 .then(function(response){
                     console.log(response.data);})
@@ -70,7 +70,7 @@
         roffLED: function(obj){
             console.log("off was called!");
             axios.post('/redoffpin',{
-                red:obj.pin 
+                red:obj.r
           })
           .then(function(response){
             console.log(response.data);})
@@ -81,7 +81,7 @@
         yonLED: function(obj){
             console.log("on was called!");
             axios.post('/yelonpin',{
-                yel:obj.pin 
+                yel:obj.y 
                  })
                 .then(function(response){
                     console.log(response.data);})
@@ -92,7 +92,7 @@
         yoffLED: function(obj){
             console.log("off was called!");
             axios.post('/yeloffpin',{
-                yel:obj.pin 
+                yel:obj.y 
           })
           .then(function(response){
             console.log(response.data);})
@@ -103,7 +103,7 @@
         gonLED: function(obj){
             console.log("on was called!");
             axios.post('/greonpin',{
-                gre:obj.pin 
+                gre:obj.g
                  })
                 .then(function(response){
                     console.log(response.data);})
@@ -114,7 +114,7 @@
         goffLED: function(obj){
             console.log("off was called!");
             axios.post('/greoffpin',{
-                gre:obj.pin 
+                gre:obj.g 
           })
           .then(function(response){
             console.log(response.data);})

@@ -27,14 +27,14 @@ def led():
 def rled_on():
 	if request.method == 'POST':
 		body = request.get_json()
-        onLED(body.get(int('red')))
+        onLED(int(body.get('red')))
         return jsonify({"status": body})
 
 @app.route("/redoffpin", methods=["POST"])
 def rled_off():
 	if request.method == 'POST':
 		body = request.get_json()
-		offLED(body.get(int('red')))
+		offLED(int(body.get('red')))
 		return jsonify({"status": body})
 
 @app.route("/yelonpin", methods=["POST"])

@@ -16,65 +16,6 @@ def ledOff(pin):
 def index():
     return render_template('pattern.html', mode=GPIO.getmode())
 
-# @app.route('/pin1', methods=['POST'])
-# def pin1():
-#     if request.method == 'POST':
-#         body=request.get_json()
-#         # red1=GPIO.setup(body['led1'],IO.OUT)
-#         return jsonify({"status" :' pin1 entered' })
-#     else:
-#         return jsonify({'status:cant find status'})
-        
-   
-# @app.route('/pin2', methods=['POST'])
-# def pin2():
-#     if request.method == 'POST':
-#         body=request.get_json()
-#         # yellow1=GPIO.setup(body['led2'],IO.OUT)
-#         return jsonify({"status" :' pin2 entered' })
-#     else:
-#         return jsonify({'status:cant find status'})
-       
-# @app.route('/pin3', methods=['POST'])
-# def pin3():
-#     if request.method == 'POST':
-#         body=request.get_json()
-#         # green1=GPIO.setup(body['led3'],IO.OUT)
-#         return jsonify({"status" :' pin3 entered' })
-#     else:
-#         return jsonify({'status:cant find status'})
-        
-  
-# @app.route('/pin4', methods=['POST'])
-# def pin4():
-#     if request.method == 'POST':
-#         body=request.get_json()
-#         # red2=GPIO.setup(body['led4'],IO.OUT)
-#         return jsonify({"status" :' pin4 entered' })
-#     else:
-#         return jsonify({'status:cant find status'})
-        
-    
-# @app.route('/pin5', methods=['POST'])
-# def pin5():
-#     if request.method == 'POST':
-#         body=request.get_json()
-#         # yellow2=GPIO.setup(body['led5'],IO.OUT)
-#         return jsonify({"status" :' pin5 entered' })
-#     else:
-#         return jsonify({'status:cant find status'})
-        
-   
-# @app.route('/pin6', methods=['POST'])
-# def pin6():
-#     if request.method == 'POST':
-#         body=request.get_json()
-#         # green2=GPIO.setup(body['led6'],IO.OUT)
-#         return jsonify({"status" :' pin6 entered' })
-#     else:
-#         return jsonify({'status:cant find status'})
-        
-
 
 @app.route('/onpin', methods=['POST'])
 def onpin():
