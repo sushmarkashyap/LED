@@ -4,7 +4,7 @@ import time
 
 IO.setwarnings(False)   
 IO.setmode (IO.BCM) 
-app = Flask(__name__)    
+app = Flask(__name__)       
 @app.route('/', methods=['GET'])
 def index():
     return render_template('servo.html', mode=GPIO.getmode())
@@ -26,9 +26,10 @@ def onpin():
         except KeyboardInterrupt:
             pass
         return jsonify({"status" : body })
+        p.stop()    
     else:
         return jsonify({'status:cant find status'})    
-p.stop()
+
 IO.cleanup()
 
 if __name__=='__main__':
