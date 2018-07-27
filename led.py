@@ -26,16 +26,16 @@ def led():
 @app.route("/onpin", methods=["POST"])
 def led_on():
 	if request.method == 'POST':
-        body = request.get_json()
-        onLED(int(body.get('led')))
-        return jsonify({"status": body})
+		body = request.get_json()
+		onLED(int(body.get('led')))
+		return jsonify({"status": body})
 
 @app.route("/offpin", methods=["POST"])
 def led_off():
 	if request.method == 'POST':
-        body = request.get_json()
-        offLED(int(body.get('led')))
-        return jsonify({"status": body})
+		body = request.get_json()
+		offLED(int(body.get('led')))
+		return jsonify({"status": body})
 
 @app.route("/cleanup", methods=["POST"])
 def cleanup():
