@@ -18,8 +18,8 @@ def offLED(pin):
 # Route "/" -> GET -> templates/led.html => Display Button for on-off & ask for pin number from the user. 
 # Route "/on" -> POST => Get the pin and on or off led using RPI.
 # Route "/off" -> POST => Get the pin and on or off led using RPI.
-@app.route("/", methods=["GET"])
-def led():
+@app.route("/traffic", methods=["GET"])
+def traffic():
 	if request.method == 'GET':
 		return render_template('traffic.html', mode=IO.getmode())
 

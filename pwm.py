@@ -1,20 +1,20 @@
 from flask import Flask, jsonify, request, render_template,url_for
-import RPi.GPIO as IO   
+import RPi.GPIO as GPIO   
 import time                            
 
-IO.setwarnings(False)   
+GPIO.setwarnings(False)   
 IO.setmode (IO.BCM) 
 app = Flask(__name__)       
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('PWM.html', mode=IO.getmode())
+@app.route('/pwm', methods=['GET'])
+def pwm():
+    return render_template('PWM.html', mode=GPIO.getmode())
 
-@app.route('/onpin', methods=['POST'])
-def onpin():
+@app.route('/pwmon', methods=['POST'])
+def pwmon():
     if request.method == 'POST':
         body=request.get_json()
-        IO.setup(int(body.get('l1')),IO.OUT)
-        p = IO.PWM(int(body.get('l1')),100) 
+        GPIO.setup(int(body.get('l1')),GPIO.OUT)
+        p = GPIO.PWM(int(body.get('l1')),100) 
         p.start(0)                              
         try:
             for i in range(5):
@@ -28,7 +28,7 @@ def onpin():
         except KeyboardInterrupt:
             pass
         p.stop()
-        IO.cleanup()
+        GPIO.cleanup()
         return jsonify({"status" : body })  
     else:
         return jsonify({'status:cant find status'})    

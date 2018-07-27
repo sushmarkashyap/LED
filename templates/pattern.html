@@ -70,7 +70,7 @@
                 methods: {
                  onLED: function(obj){
                 console.log("on was called!");
-                axios.post('/onpin',{
+                axios.post('/patonpin',{
                 l1:obj.r1, l2:obj.y1, l3:obj.g1, l4:obj.r2, l5:obj.y2, l6:obj.g2 
                  })
                 .then(function(response){

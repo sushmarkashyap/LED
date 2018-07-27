@@ -12,17 +12,17 @@ def ledOff(pin):
     GPIO.output(pin,GPIO.LOW)
     return   
 
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('pattern.html', mode=GPIO.getmode())
+@app.route('/pattern', methods=['GET'])
+def pattern():
+    return render_template('pattern.html', mode=IO.getmode())
 
 
-@app.route('/onpin', methods=['POST'])
-def onpin():
+@app.route('/patonpin', methods=['POST'])
+def patonpin():
     if request.method == 'POST':
         body=request.get_json()
         for i in range(0,5):
-            print('entering loop')
+            
             ledOn(int(body.get('l1')))
             ledOn(int(body.get('l6')))
             time.sleep(2)
@@ -54,7 +54,7 @@ def onpin():
 @app.route("/cleanup", methods=["POST"])
 def cleanup():
 	if request.method == 'POST':
-		GPIO.cleanup()
+		IO.cleanup()
 		return jsonify({"status": "Done cleaning the house!"})    
 
 if __name__=='__main__':
