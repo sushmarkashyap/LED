@@ -17,7 +17,7 @@ def onpin():
         p = IO.PWM(int(body.get('l1')),100) 
         p.start(0)                              
         try:
-            while 1:
+            for i in range(5):
                 for x in range (50):                         
                     p.ChangeDutyCycle(x)              
                     time.sleep(0.1)                           
@@ -32,13 +32,6 @@ def onpin():
         return jsonify({"status" : body })  
     else:
         return jsonify({'status:cant find status'})    
-
-@app.route('/offpin', methods=['POST'])
-def offpin():
-    if request.method == 'POST':
-        body=request.get_json()
-        IO.output(int(body.get('l1')),IO.LOW)
-        return jsonify({"status" : body })
 
 if __name__=='__main__':
     app.debug=True

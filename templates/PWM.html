@@ -26,7 +26,6 @@
                   </div>
           </form>
          <button class="btn btn-success" v-on:click="onLED(current)">ON</button>
-         <button class="btn btn-success" v-on:click="offLED(current)">OFF</button>
       </section>
     </div>  
     <!-- Optional JavaScript -->
@@ -47,17 +46,6 @@
                     onLED: function(obj){
                     console.log("on was called!");
                     axios.post('/onpin',{
-                    l1:obj.pin
-                    })
-                    .then(function(response){
-                        console.log(response.data);})
-                    .catch(function(error){
-                        console.log(error);
-                    });  
-                        },
-                    offLED: function(obj){
-                    console.log("on was called!");
-                    axios.post('/offpin',{
                     l1:obj.pin
                     })
                     .then(function(response){
