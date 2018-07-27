@@ -4,7 +4,7 @@ import time
 
 IO.setwarnings(False)   
 IO.setmode (IO.BCM) 
-    
+app = Flask(__name__)    
 @app.route('/', methods=['GET'])
 def index():
     return render_template('servo.html', mode=GPIO.getmode())
