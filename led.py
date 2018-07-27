@@ -21,20 +21,20 @@ def offLED(pin):
 @app.route("/", methods=["GET"])
 def led():
 	if request.method == 'GET':
-            return render_template('led.html', mode=GPIO.getmode())
+		return render_template('led.html', mode=GPIO.getmode())
 
 @app.route("/onpin", methods=["POST"])
 def led_on():
 	if request.method == 'POST':
-            body = request.get_json()
-            onLED(int(body.get('led')))
-            return jsonify({"status": body})
+		body = request.get_json()
+        onLED(int(body.get('led')))
+        return jsonify({"status": body})
 
 @app.route("/offpin", methods=["POST"])
 def led_off():
 	if request.method == 'POST':
-            body = request.get_json()
-            offLED(int(body.get('led')))
+		body = request.get_json()
+        offLED(int(body.get('led')))
 	    return jsonify({"status": body})
 
     
