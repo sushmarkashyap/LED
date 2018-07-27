@@ -75,8 +75,7 @@ def pwmon():
 def pwmoff():
 	if request.method == 'POST':
 		body = request.get_json()
-        GPIO.setup(int(body.get('l1')),GPIO.OUT)
-		offLED(int(body.get('l1')))
+        offLED(int(body.get('l1')))
 		return jsonify({"status": body})
         GPIO.cleanup()
 
