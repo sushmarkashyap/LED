@@ -74,7 +74,7 @@ def pwmon():
 @app.route("/pwmoff", methods=["POST"])
 def pwmoff():
 	if request.method == 'POST':
-        body = request.get_json()
+        body=request.get_json()
         offLED(int(body.get('l1')))
         return jsonify({"status": body})
 
