@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template, url_for
-import RPi.IO as IO
+import RPi.GPIO as IO
 
 app = Flask(__name__)
 IO.setmode(IO.BCM)
