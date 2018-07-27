@@ -55,7 +55,7 @@ def pwmon():
         p = GPIO.PWM(int(body.get('l1')),100) 
         p.start(0)                              
         try:
-            for i in range(5):
+            for i in range(3):
                 for x in range (50):                         
                     p.ChangeDutyCycle(x)              
                     time.sleep(0.1)                           
@@ -70,13 +70,6 @@ def pwmon():
         return jsonify({"status" : body })  
     else:
         return jsonify({'status:cant find status'})
-
-@app.route("/pwmoff", methods=["POST"])
-def pwmoff():
-	if request.method == 'POST':
-        body=request.get_json()
-        offLED(int(body.get('l1')))
-        return jsonify({"status": body})
 
 # Route "/pwm" -> GET -> templates/pwm.html => Display Button for on-off & ask for pin number & duty cycle from the user. 
 # Route "/pwm" -> POST => Get the pin & duty cycle, on or off led using RPI and then change the intensity of light.
