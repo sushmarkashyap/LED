@@ -62,7 +62,8 @@ def pwmon():
             
                 for x in range (50):                        
                     p.ChangeDutyCycle(50-x)        
-                    tcept KeyboardInterrupt:
+                    time.sleep(0.1)
+        except KeyboardInterrupt:
             pass
         p.stop()
         GPIO.cleanup()
