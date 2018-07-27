@@ -21,21 +21,25 @@
                             <div class="form-group">
                                 <label for="led1">RED</label>
                                 <input type="number" name="led1" v-model="current.r">
-                                <button class="btn btn-success" v-on:click="ronLED(current)">ON</button>
-                                <button class="btn btn-danger" v-on:click="roffLED(current)">OFF</button>
                             </div>
+                            <button class="btn btn-success" v-on:click="ronLED(current)">ON</button>
+                            <button class="btn btn-danger" v-on:click="roffLED(current)">OFF</button>
+                        </div>
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="led2">YELLOW</label>
                                 <input type="number" name="led2" v-model="current.y">
-                                <button class="btn btn-success" v-on:click="yonLED(current)">ON</button>
-                                <button class="btn btn-danger" v-on:click="yoffLED(current)">OFF</button>
                             </div>
+                            <button class="btn btn-success" v-on:click="yonLED(current)">ON</button>
+                            <button class="btn btn-danger" v-on:click="yoffLED(current)">OFF</button>
+                        </div>
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="led3">GREEN</label>
                                 <input type="number" name="led3" v-model="current.g">
-                                <button class="btn btn-success" v-on:click="gonLED(current)">ON</button>
-                                <button class="btn btn-danger" v-on:click="goffLED(current)">OFF</button>
                             </div>
+                            <button class="btn btn-success" v-on:click="gonLED(current)">ON</button>
+                            <button class="btn btn-danger" v-on:click="goffLED(current)">OFF</button>
                         </div>
                     </div>
          </form>
