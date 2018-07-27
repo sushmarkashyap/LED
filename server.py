@@ -74,10 +74,9 @@ def pwmon():
 @app.route("/pwmoff", methods=["POST"])
 def pwmoff():
 	if request.method == 'POST':
-		body = request.get_json()
+        body = request.get_json()
         offLED(int(body.get('l1')))
-		return jsonify({"status": body})
-        GPIO.cleanup()
+        return jsonify({"status": body})
 
 # Route "/pwm" -> GET -> templates/pwm.html => Display Button for on-off & ask for pin number & duty cycle from the user. 
 # Route "/pwm" -> POST => Get the pin & duty cycle, on or off led using RPI and then change the intensity of light.
