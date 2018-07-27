@@ -26,11 +26,12 @@ def onpin():
         except KeyboardInterrupt:
             pass
         return jsonify({"status" : body })
-        p.stop()    
+        p.stop() 
+        IO.cleanup()   
     else:
         return jsonify({'status:cant find status'})    
 
-IO.cleanup()
+
 
 if __name__=='__main__':
     app.debug=True
