@@ -35,8 +35,10 @@ def onpin():
 
 @app.route('/offpin', methods=['POST'])
 def offpin():
-    IO.output(int(body.get('l1')),IO.LOW)
-    return
+    if request.method == 'POST':
+        body=request.get_json()
+        IO.output(int(body.get('l1')),IO.LOW)
+        return jsonify({"status" : body })
 
 if __name__=='__main__':
     app.debug=True
